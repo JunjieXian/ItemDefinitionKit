@@ -29,4 +29,10 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintPure, meta = (DeterminesOutputType = "FragmentClass"), Category = "Fragments")
 	static const UItemFragment* FindFragmentByClass(const TSubclassOf<UItemDefinition> ItemDefinition, const TSubclassOf<UItemFragment> FragmentClass);
+
+	template <typename T>
+	static const T* FindFragmentByClass(const TSubclassOf<UItemDefinition> ItemDefinition)
+	{
+		return Cast<T>(FindFragmentByClass(ItemDefinition, T::StaticClass()));
+	}
 };

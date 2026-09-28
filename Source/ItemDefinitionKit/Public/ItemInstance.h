@@ -35,5 +35,11 @@ public:
 	void Initialize(TSubclassOf<UItemDefinition> ItemDef, const TMap<FGameplayTag, float>& InitAttributes);
 
 	UFUNCTION(BlueprintCallable, BlueprintPure, meta = (DeterminesOutputType = "FragmentClass"), Category = "Fragments")
-	const UItemFragment* FindFragmentByClass(const TSubclassOf<UItemFragment> FragmentClass);
+	const UItemFragment* FindFragmentByClass(const TSubclassOf<UItemFragment> FragmentClass) const;
+
+	template <typename T>
+	const T* FindFragmentByClass() const
+	{
+		return Cast<T>(FindFragmentByClass(T::StaticClass()));
+	}
 };

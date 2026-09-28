@@ -29,11 +29,10 @@ void UItemInstance::Initialize(TSubclassOf<UItemDefinition> ItemDef, const TMap<
 	}
 }
 
-const UItemFragment* UItemInstance::FindFragmentByClass(const TSubclassOf<UItemFragment> FragmentClass) {
-	if (!FragmentClass) {
+const UItemFragment* UItemInstance::FindFragmentByClass(const TSubclassOf<UItemFragment> FragmentClass) const {
+	if (!ItemDefinition || !FragmentClass) {
 		return nullptr;
 	}
 
-	UItemDefinition* ItemCDO = ItemDefinition.GetDefaultObject();
-	return ItemCDO->FindFragmentByClass(ItemDefinition, FragmentClass);
+	return UItemDefinition::FindFragmentByClass(ItemDefinition, FragmentClass);
 }
