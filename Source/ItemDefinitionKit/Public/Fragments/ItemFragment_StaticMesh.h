@@ -25,6 +25,9 @@ public:
 	/** 材质列表：选择网格体后会自动填充其默认材质，可在此处覆盖替换 */
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Mesh", meta = (DisplayName = "Materials", EditFixedSize))
 	TArray<TObjectPtr<UMaterialInterface>> Materials;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Mesh")
+	FTransform RelativeTransform = FTransform::Identity;
 
 	/** 将材质列表重置为网格体的默认材质 */
 	UFUNCTION(CallInEditor, Category = "Mesh", meta = (DisplayName = "Reset Materials To Default"))

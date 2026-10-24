@@ -24,6 +24,8 @@ void UItemFragment_SkeletalMesh::ApplyToComponent(USkeletalMeshComponent* MeshCo
 	}
 
 	MeshComponent->SetSkeletalMesh(ItemSkeletalMesh);
+	MeshComponent->SetRelativeTransform(RelativeTransform);
+	MeshComponent->EmptyOverrideMaterials();
 
 	for (int32 Index = 0; Index < Materials.Num(); ++Index)
 	{

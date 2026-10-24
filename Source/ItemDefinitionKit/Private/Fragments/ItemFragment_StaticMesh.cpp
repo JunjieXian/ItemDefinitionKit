@@ -22,6 +22,8 @@ void UItemFragment_StaticMesh::ApplyToComponent(UStaticMeshComponent* MeshCompon
 	}
 
 	MeshComponent->SetStaticMesh(ItemMesh);
+	MeshComponent->SetRelativeTransform(RelativeTransform);
+	MeshComponent->EmptyOverrideMaterials();
 
 	for (int32 Index = 0; Index < Materials.Num(); ++Index)
 	{

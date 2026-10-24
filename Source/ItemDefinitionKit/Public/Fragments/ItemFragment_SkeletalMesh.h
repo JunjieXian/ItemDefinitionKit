@@ -27,6 +27,9 @@ public:
 	/** 材质列表：选择网格体后会自动填充其默认材质，可在此处覆盖替换 */
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "SkelMesh", meta = (DisplayName = "Materials", EditFixedSize))
 	TArray<TObjectPtr<UMaterialInterface>> Materials;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "SkelMesh")
+	FTransform RelativeTransform = FTransform::Identity;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Anim Options")
 	TEnumAsByte<EAnimationMode::Type> AnimationMode = EAnimationMode::AnimationBlueprint;
